@@ -1,0 +1,43 @@
+name:                bindings-clp
+version:             0.0.0.0
+synopsis:            Bindings for Linear Program Solver CLP
+description:         Please see README.md
+homepage:            https://github.com/mischel/bindings-clp#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Michael Schaper
+maintainer:          Michael Schaper
+copyright:           2016 Michael Schaper
+category:            Math
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:
+    Clp
+  other-modules:
+    -- Bindings.Clp
+    -- Bindings.Coin
+  build-depends:       
+    base >= 4.7 && < 5,
+    mtl,
+    vector
+
+  extra-libraries:     Clp
+  other-extensions:    RecordWildCards
+  default-language:    Haskell2010
+
+-- executable clp
+--   main-is:        Main.hs
+--   hs-source-dirs: app
+--   build-depends:  base == 4.*, bindings-clp
+--   ghc-options:
+--     -Wall -threaded -rtsopts -with-rtsopts=-N
+--   default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/mischel/bindings-clp
+
