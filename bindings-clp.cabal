@@ -18,8 +18,7 @@ library
   exposed-modules:
     Clp
   other-modules:
-    -- Bindings.Clp
-    -- Bindings.Coin
+    Bindings.ClpCInterface
   build-depends:       
     base >= 4.7 && < 5,
     mtl,
