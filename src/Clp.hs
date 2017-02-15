@@ -157,7 +157,7 @@ withClp optM Matrix{..} Constraints{..} f = liftIO $ do
               unsafeWithM objtv $ \objtvPtr ->
                 unsafeWithM rowlb $ \rowlbPtr ->
                   unsafeWithM rowub $ \rowubPtr -> do
-                    loadProblem mPtr nRows nCols startPtr indexPtr valuePtr collbPtr colubPtr objtvPtr rowlbPtr rowubPtr
+                    loadProblem mPtr nCols nRows startPtr indexPtr valuePtr collbPtr colubPtr objtvPtr rowlbPtr rowubPtr
                     optFPtr <- newForeignPtr deleteSolver =<< newSolver
                     withForeignPtr optFPtr $ \optPtr ->
                       f optM mPtr optPtr
