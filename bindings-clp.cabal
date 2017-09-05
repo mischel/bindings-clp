@@ -7,8 +7,7 @@ license:             BSD3
 license-file:        LICENSE
 author:              Michael Schaper
 maintainer:          Michael Schaper
-copyright:           2016 Michael Schaper
-category:            Math
+category:            FFI, Logic, Theorem Provers, Formal Methods
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
@@ -17,24 +16,21 @@ library
   hs-source-dirs:      src
   exposed-modules:
     Clp
-  other-modules:
+    ClpM
     Bindings.ClpCInterface
-  build-depends:       
+  build-depends:
     base >= 4.7 && < 5,
     mtl,
     vector
-
-  extra-libraries:     Clp
-  other-extensions:    RecordWildCards
+  other-extensions:
+    RecordWildCards
+    GeneralizedNewtypeDeriving
   default-language:    Haskell2010
-
--- executable clp
---   main-is:        Main.hs
---   hs-source-dirs: app
---   build-depends:  base == 4.*, bindings-clp
---   ghc-options:
---     -Wall -threaded -rtsopts -with-rtsopts=-N
---   default-language:    Haskell2010
+  extra-libraries:     Clp
+  pkgconfig-depends:   clp >= 1.16.0
+  ghc-options:
+    -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates
+  default-language:    Haskell2010
 
 source-repository head
   type:     git
